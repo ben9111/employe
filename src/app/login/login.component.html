@@ -1,0 +1,44 @@
+<div class="login-container">
+    <div class="row login-inner">
+        <div class="col-md-6 col-sm-12 login">
+
+            <div class="header-login text-center">
+                <div class="sign-n f1">
+                    Sign in
+                </div>
+                <mat-hint class="f2">
+                    Sign in to continue to our application
+                </mat-hint>
+            </div>
+            <div>
+                <form [formGroup]="login" (ngSubmit)="Signin()" class="form-container">
+                    <mat-form-field class="username-block" appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input matInput formControlName="username">
+                        <span matSuffix class="material-icons">
+                            account_box
+                        </span>
+                        <mat-hint>Hint</mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password">
+                        <span matSuffix class="material-icons">
+                            lock
+                        </span>
+                        <mat-hint>Hint</mat-hint>
+                    </mat-form-field>
+
+
+
+                    <button color="primary" mat-raised-button>Sign in</button>
+                </form>
+            </div>
+        </div>
+        <div class="d-none d-md-flex col-md-6 col-sm-12 side">
+            <img
+                src="https://www.kioskmodelockdown.com/wp-content/themes/helpguru-childtheme/frontpage/images/icon-kiosk-mode-lockdown-android-app.png">
+        </div>
+    </div>
+</div>
