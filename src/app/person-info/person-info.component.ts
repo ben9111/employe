@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { userData } from '../interfaces/userData';
-import { DataService } from '../data.service';
-
-
+import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -14,17 +12,18 @@ import { DataService } from '../data.service';
 })
 export class PersonInfoComponent implements OnInit {
 
-  userData: userData[];
+  userData: userData;
   constructor(
     private route: ActivatedRoute,
-    private ds: DataService) { }
+    private ds: DataService) {
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((param: ParamMap) => {
       console.log('userId', param.get('id'));
       let userId = param.get('id');
-      let isExist = this.ds.getUserInfo(parseInt(userId));
-      this.userData = isExist ? [isExist] : <any>[];
+      this.ds.getUserInfo(userId)
+        .subscribe(user => this.userData = user)
     })
   }
 

@@ -1,64 +1,27 @@
 <div class="personal">
-    <button color="primary" mat-button routerLink='/home'>Back</button>
+    <button color="primary" mat-button routerLink='/home' [state]="{tracingId: 123}">Back</button>
+    <div>
+        <div>
+            <h2>Personal Info</h2>
+            <div>
+                <div *ngFor='let user of userData'>
+                    <mat-divider></mat-divider>
+                    <div>
+                        <img width="75" height="75" src="assets/{{user.Profile_Image}}">
+                    </div>
+                    <mat-list>
+                        <mat-list-item> ID: {{user.Id}} </mat-list-item>
+                        <mat-list-item> Full Name :{{user.Full_Name}} </mat-list-item>
+                        <mat-list-item> Username : {{user.Username}} </mat-list-item>
+                        <mat-list-item> Position : {{user.Position}} </mat-list-item>
+                        <mat-list-item> Manager Name : {{user.Manager_Name}} </mat-list-item>
+                        <mat-list-item> Email : {{user.Email}} </mat-list-item>
+                        <mat-list-item> Phone Number : {{user.Phone}} </mat-list-item>
+                    </mat-list>
 
-    <div class="media">
-        <img src="" class="align-self-center mr-3" style="width:60px">
-        <div class="media-body">
-          <h2>Personal Info</h2>
-          <div *ngIf='userData.length>0'>
-            <div *ngFor='let user of userData'>
-
-                <mat-divider></mat-divider>
-                <mat-list>
-                    <mat-list-item> ID: {{user.id}} </mat-list-item>
-                    <mat-list-item> Full Name :{{user.full_name}} </mat-list-item>
-                    <mat-list-item> Username : {{user.username}} </mat-list-item>
-                    <mat-list-item> Position : {{user.position}} </mat-list-item>
-                    <mat-list-item> Manager Name : {{user.manager_name}} </mat-list-item>
-                    <mat-list-item> Email : {{user.email}} </mat-list-item>
-                    <mat-list-item> Phone Number : {{user.phone_number}} </mat-list-item>
-                </mat-list>
-                
+                </div>
             </div>
-          </div>
-      </div>
+
+        </div>
     </div>
 </div>
-
-
-
-
-
-
-    <!-- <div class="h-line">
-        Personal Info
-    </div>
-    <div *ngIf='userData.length>0'>
-        <div *ngFor='let user of userData'>
-            <div>
-                ID: {{user.id}}
-            </div>
-            <div>
-               Full Name :{{user.full_name}}
-            </div>
-            <div>
-                Username : {{user.username}}
-            </div>
-            <div>
-                Position : {{user.position}}
-            </div>
-            <div>
-                Manager Name : {{user.manager_name}}
-            </div>
-            <div>
-                Email : {{user.email}}
-            </div>
-            <div>
-                Phone Number : {{user.phone_number}}
-            </div>
-            <div>
-                profile Image : {{user.profile_image}}
-            </div>
-            
-        </div>
-    </div> -->

@@ -1,12 +1,11 @@
 export interface userData {
-    id: number;
-    full_name: string;
-    username: string;
-    position: string;
-    manager_name: string;
-    email: string;
-    phone_number: string;
-    gender: string;
-    profile_image: string;
+    Id: string;
+    Full_Name: string;
+    Username: string;
+    Position: string;
+    Manager_Name: string;
+    Email: string;
+    Phone: string;
+    Profile_Image: string;
 
 }

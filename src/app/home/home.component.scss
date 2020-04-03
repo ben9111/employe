@@ -5,8 +5,13 @@
   max-width: 850px;
   margin: 25px auto;
 }
+.tab {
+  overflow: auto;
+}
+
 table {
   width: 100%;
+  overflow: auto;
 }
 .s-fields {
   margin-bottom: 5%;
@@ -25,4 +30,24 @@ table {
 tr.row-element:not(.example-expanded-row):hover {
   background: #efefef;
   cursor: pointer;
+}
+
+.items-history {
+  margin-bottom: 10px;
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.item {
+  cursor: pointer;
+  &:hover {
+    border-bottom: 1px solid black;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  td.mat-cell:first-of-type {
+    padding-right: 24px;
+    padding-left: 0px;
+  }
 }

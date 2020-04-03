@@ -8,6 +8,7 @@ import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { PersonInfoComponent } from './person-info/person-info.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PersonInfoComponent } from './person-info/person-info.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
     FormsModule,

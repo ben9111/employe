@@ -1,7 +1,6 @@
 <div class="login-container">
     <div class="row login-inner">
         <div class="col-md-6 col-sm-12 login">
-
             <div class="header-login text-center">
                 <div class="sign-n f1">
                     Sign in
@@ -29,10 +28,10 @@
                         </span>
                         <mat-hint>Hint</mat-hint>
                     </mat-form-field>
-
-
-
                     <button color="primary" mat-raised-button>Sign in</button>
+                    <mat-error class="matr" *ngIf='showErrorRespond'>
+                        {{showErrorRespond}}
+                    </mat-error>
                 </form>
             </div>
         </div>
