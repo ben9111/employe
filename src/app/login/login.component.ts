@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   Signin() {
-    console.log(this.login.value)
     if (this.login.valid) {
       this.user = this.login.value;
       this.lg.checkAuthorization(this.user)

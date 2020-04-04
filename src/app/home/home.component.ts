@@ -16,13 +16,12 @@ import { filter, take } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
   search: FormControl = new FormControl("")
   displayedColumns: string[] = ['id', 'full_name', 'email', 'position'];
-  dataSource;
+  dataSource: MatTableDataSource<userData>;
   lastSearchEmployers: userData[];
   historySearch: userData[] = [];
   showLastSearch: boolean;
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private ds: DataService) {
     let showLastsearch_ = this.router.getCurrentNavigation().extras.state;
     if (showLastsearch_) {
@@ -34,10 +33,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.ds.getUsers()
       .subscribe((_users: userData[]) => {
-        console.log("new data", _users);
         this.dataSource = new MatTableDataSource(_users);
       })
-
   }
 
 
@@ -47,8 +44,11 @@ export class HomeComponent implements OnInit {
       this.search.markAsTouched();
       return;
     }
-
     const filterValue = this.search.value;
+    this.dataSource.filterPredicate = ((data: userData, filter: string): boolean => {
+      return data.Id.toLowerCase().includes(filter) || data.Full_Name.toLowerCase().includes(filter) ||
+        data.Email.toLowerCase().includes(filter) || data.Position.toLowerCase().includes(filter)
+    })
     this.dataSource.filter = filterValue.trim().toLowerCase();
     this.lastSearchEmployers = this.dataSource.filteredData;
     if (this.lastSearchEmployers.length > 0) {
